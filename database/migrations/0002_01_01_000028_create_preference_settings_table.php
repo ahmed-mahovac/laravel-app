@@ -10,7 +10,7 @@ class CreatePreferenceSettingsTable extends Migration
     {
         Schema::create('preference_settings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('preference_categories')->onDelete('cascade');
             $table->string('nameEn');
             $table->string('nameDe');
             $table->string('nameEs');

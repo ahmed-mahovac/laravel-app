@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('treatment_id')->nullable()->constrained()->onDelete('set null');
-            $table->foreignId('arch_id')->nullable()->constrained()->onDelete('set null');
-            $table->foreignId('device_id')->nullable()->constrained()->onDelete('set null');
-            $table->foreignId('package_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('arch_id')->nullable()->constrained('product_archs')->onDelete('set null');
+            $table->foreignId('device_id')->nullable()->constrained('product_devices')->onDelete('set null');
+            $table->foreignId('package_id')->nullable()->constrained('product_packages')->onDelete('set null');
             // Add other fields as needed
             $table->timestamps();
         });

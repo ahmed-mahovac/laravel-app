@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('textDe');
             $table->string('textEs');
             $table->boolean('allowBest');
-            $table->foreignId('package_id')->constrained()->onDelete('cascade');
+            $table->foreignId('package_id')->constrained('product_packages')->onDelete('cascade');
             // Add other fields as needed
             $table->timestamps();
         });

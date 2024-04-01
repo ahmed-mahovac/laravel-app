@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->integer('treatmentNumber')->default(1);
             $table->enum('status', ['NEW', 'DRAFT', 'SUBMITTED', 'REJECTED', 'DATA_MISSING', 'IN_PLANNING', 'FOR_REVIEW', 'CANCELLED', 'IN_PRODUCTION', 'SHIPPING', 'IN_TREATMENT', 'COMPLETED', 'CASE_WILL_BE_CLOSED']);
-            $table->foreignId('product_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('product_id')->nullable()->onDelete('set null');
             $table->foreignId('patient_id')->nullable()->constrained()->onDelete('set null');
             $table->foreignId('medical_information_id')->nullable()->constrained()->onDelete('set null');
             $table->dateTime('timestamp')->useCurrent();
-            $table->foreignId('history_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('history_id')->nullable()->onDelete('set null');
             $table->foreignId('parent_treatment_id')->nullable()->constrained('treatments')->onDelete('set null');
             $table->foreignId('doctor_office_rel_id')->constrained()->onDelete('cascade');
             $table->string('offerPath')->nullable();

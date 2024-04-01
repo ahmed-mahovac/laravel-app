@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('prefixNo');
             $table->integer('patientCounter')->default(0);
             $table->foreignId('country_id')->constrained()->onDelete('cascade');
-            $table->foreignId('medical_preferences_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('medical_preferences_id')->nullable()->onDelete('set null');
             $table->timestamps();
         });
     }

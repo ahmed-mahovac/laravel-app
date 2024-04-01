@@ -10,7 +10,7 @@ class CreatePreferencesValuesTable extends Migration
     {
         Schema::create('preferences_values', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('setting_id')->constrained()->onDelete('cascade');
+            $table->foreignId('setting_id')->constrained('preference_settings')->onDelete('cascade');
             $table->boolean('value');
             // Add other fields as needed
             $table->timestamps();
